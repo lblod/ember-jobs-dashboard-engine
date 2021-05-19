@@ -9,6 +9,12 @@ const { modulePrefix } = config;
 export default class EmberJobsDashboardEngine extends Engine {
   modulePrefix = modulePrefix;
   Resolver = Resolver;
+
+  dependencies = {
+    services: [
+      'store',
+    ]
+  }
 }
 
 loadInitializers(EmberJobsDashboardEngine, modulePrefix);
