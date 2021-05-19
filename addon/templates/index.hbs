@@ -1,1 +1,52 @@
-Jobs Dashboard
+<AuToolbar @border="bottom" @size="large">
+  <AuToolbarGroup>
+    <AuHeading @skin="2">Jobs Overview</AuHeading>
+  </AuToolbarGroup>
+</AuToolbar>
+
+<AuDataTable
+  @content={{this.model}}
+  @fields="title description"
+  @noDataMessage="No jobs found"
+  @sort={{this.sort}}
+  @size={{this.size}}
+  @page={{this.page}} as |t|>
+  <t.content as |c|>
+    <c.header>
+      <th class="au-u-visible-small-up">uri</th>
+      <AuDataTableThSortable @field="created" @currentSorting={{this.sort}} @label="Created" @class="data-table__header-title" />
+      <AuDataTableThSortable @field="modified" @currentSorting={{this.sort}} @label="Modified" @class="data-table__header-title" />
+      <AuDataTableThSortable @field="creator" @currentSorting={{this.sort}} @label="Creator" @class="data-table__header-title" />
+      <AuDataTableThSortable @field="operation" @currentSorting={{this.sort}} @label="Operation" @class="data-table__header-title" />
+      <AuDataTableThSortable @field="status" @currentSorting={{this.sort}} @label="Status" @class="data-table__header-title" />
+      <th class="au-u-visible-small-up">Action</th>
+    </c.header>
+    <c.body as |row|>
+      <td>
+        {{row.uri}}
+      </td>
+      <td>
+        {{moment-format row.created 'DD/MM/YYYY HH:mm:ss'}}
+      </td>
+      <td class="au-u-visible-small-up">
+          {{moment-format row.modified 'DD/MM/YYYY HH:mm:ss'}}
+      </td>
+      <td class="au-u-visible-medium-up">
+          {{row.creator}}
+      </td>
+      <td class="au-u-visible-small-up au-word-wrap">
+          {{row.operation}}
+      </td>
+      <td class="au-u-visible-small-up">
+          <StatusPill @status={{row.shortStatus}}></StatusPill>
+      </td>
+      <td class="au-u-visible-large-up">
+        <LinkTo @route="details" @model={{row}} >
+          <AuButton @skin="primary">
+            view
+          </AuButton>
+        </LinkTo>
+      </td>
+    </c.body>
+  </t.content>
+</AuDataTable>

@@ -1,0 +1,53 @@
+<AuToolbar @border="bottom" @size="large">
+  <AuToolbarGroup class="au-c-toolbar__group--row au-c-toolbar_space-between">
+    <AuHeading @skin="2">Job Details</AuHeading>
+
+    <AuButtonGroup>
+    {{#unless this.deleteJob.isRunning}}
+      <AuButton @alert={{true}} {{on "click" (perform this.deleteJob this.model)}} >
+          delete
+      </AuButton>
+     {{else}}
+      <AuLoader @size="small" />
+    {{/unless}}
+    <LinkTo @route="index">
+      <AuButton  @skin="secondary">
+        Back to overview
+      </AuButton>
+    </LinkTo>
+    </AuButtonGroup>
+  </AuToolbarGroup>
+  <AuToolbarGroup class="au-c-toolbar__group--row">
+    <ul class="au-o-grid">
+      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
+        <AuLabel>uri</AuLabel>
+        <p class="au-word-wrap">{{this.model.uri}}</p>
+      </li>
+      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
+        <AuLabel>Creator</AuLabel>
+        <p class="au-word-wrap">{{this.model.creator}}</p>
+      </li>
+      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
+        <AuLabel>Created</AuLabel>
+         {{moment-format this.model.created 'DD/MM/YYYY HH:mm:ss'}}
+      </li>
+      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
+        <AuLabel>Modified</AuLabel>
+        {{moment-format this.model.modified 'DD/MM/YYYY HH:mm:ss'}}
+      </li>
+      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
+        <AuLabel>Status</AuLabel>
+        <StatusPill @status={{this.model.shortStatus}}></StatusPill>
+      </li>
+      <li class="au-o-grid__item au-u-1-2 au-u-2-6@medium">
+        {{#if this.model.error.message}}
+        <AuAlert @alertIcon="cross" @alertTitle="Error" @alertskin={{"error"}}>
+          <p class="au-word-wrap"> {{this.model.error.message}} </p>
+        </AuAlert>
+        {{/if}}
+      </li>
+    </ul>
+  </AuToolbarGroup>
+</AuToolbar>
+
+{{outlet}}
