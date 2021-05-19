@@ -1,0 +1,18 @@
+// Toolbar group rows
+.au-c-toolbar__group--row {
+  display: block;
+  width: 100%;
+
+  & + & {
+    margin-top: $au-unit;
+  }
+}
+
+.au-c-toolbar_space-between{
+  display: flex;
+  justify-content: space-between !important;
+}
+
+.au-word-wrap {
+  word-wrap: break-word;
+}
