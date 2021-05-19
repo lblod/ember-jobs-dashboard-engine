@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-engine"
   ],
   "repository": "",
   "license": "MIT",
@@ -27,9 +28,13 @@
   },
   "dependencies": {
     "ember-cli-babel": "^7.23.0",
-    "ember-cli-htmlbars": "^5.3.1"
+    "ember-cli-htmlbars": "^5.3.1",
+    "@appuniversum/appuniversum": "^0.0.14",
+    "@appuniversum/ember-appuniversum": "0.0.30",
+    "ember-data-table": "^2.0.0"
   },
   "devDependencies": {
+    "ember-engines": "^0.8.14",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.1.4",
     "@glimmer/component": "^1.0.3",
@@ -63,6 +68,9 @@
     "prettier": "^2.2.1",
     "qunit": "^2.13.0",
     "qunit-dom": "^1.6.0"
+  },
+  "peerDependencies": {
+    "ember-engines": "^0.8.14"
   },
   "engines": {
     "node": "10.* || >= 12"
