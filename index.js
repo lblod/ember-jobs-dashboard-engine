@@ -1,6 +1,5 @@
-const EngineAddon = require('ember-engines/lib/engine-addon');
+const { buildEngine } = require('ember-engines/lib/engine-addon');
 
-module.exports = EngineAddon.extend({
-  name: 'ember-jobs-dashboard',
-};
+module.exports = buildEngine({
+  name: require('./package.json').name,
 });
