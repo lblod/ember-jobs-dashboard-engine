@@ -1,7 +1,7 @@
 {
-  "name": "ember-jobs-dashboard",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "@lblod/ember-jobs-dashboard-engine",
+  "version": "0.1.0",
+  "description": "Dashboard engine to easily manage harvesting jobs",
   "keywords": [
     "ember-addon",
     "ember-engine"
