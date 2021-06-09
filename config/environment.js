@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   const ENV = {
-    modulePrefix: 'ember-jobs-dashboard-engine',
+    modulePrefix: '@lblod/ember-jobs-dashboard-engine',
     environment: environment
   }
 
