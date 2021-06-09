@@ -1,1 +1,1 @@
-export { default } from 'ember-jobs-dashboard/controllers/index';
+export { default } from 'ember-jobs-dashboard-engine/controllers/index';

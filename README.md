@@ -1,4 +1,4 @@
-ember-jobs-dashboard
+ember-jobs-dashboard-engine
 ==============================================================================
 
 [Short description of the addon.]
@@ -16,7 +16,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-jobs-dashboard
+ember install @lblod/ember-jobs-dashboard-engine
 ```
 
 

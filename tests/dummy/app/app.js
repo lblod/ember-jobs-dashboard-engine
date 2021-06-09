@@ -8,7 +8,7 @@ export default class App extends Application {
   podModulePrefix = config.podModulePrefix;
   Resolver = Resolver;
   engines = {
-    'ember-jobs-dashboard': {
+    'ember-jobs-dashboard-engine': {
       dependencies: {
         services: ['store'],
       },
