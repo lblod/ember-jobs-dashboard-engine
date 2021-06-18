@@ -1,7 +1,7 @@
 ember-jobs-dashboard-engine
 ==============================================================================
 
-[Short description of the addon.]
+The ember-jobs-dashboard-engine is the engine version of [frontend-harvesting-self-service](https://github.com/lblod/frontend-harvesting-self-service). This engine is created to be easily mounted to existing frontends. The [LBLOD dashboard](https://github.com/lblod/frontend-dashboard) is one example of a frontend using this engine.
 
 
 Compatibility
@@ -23,13 +23,53 @@ ember install @lblod/ember-jobs-dashboard-engine
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+## Dependencies
 
+To mount this engine to a frontend you will first need to make sure that all dependencies are synced. This means that all dependencies that you can find in this repo's packages.json need to be the same version in the host app. Also the host app needs to be upgraded to ember-cli 3.24.0 if it is not already.
+<br> 
 
-Contributing
-------------------------------------------------------------------------------
+Besides that you will need to install the ember-engines package in the host app. This also has to be the same version as the one you can find in this repo's package.json
 
-See the [Contributing](CONTRIBUTING.md) guide for details.
+## Mounting
+
+To mount the engine into your app you have to navigate to the host app's router.js file and add the following line under Router.map:
+```
+Router.map(function() {
+  this.mount('@lblod/ember-jobs-dashboard-engine', { path: "jobs" });
+  ...
+```
+after this the engine's /index route will be available in the host /jobs route. 
+
+## Service
+
+The engine relies on the store service for authentication & authorization. The is normally handles by the host app. To make the store service accessible to the jobs-dashboard-engine we need to add the following snippet to the host's app.js file
+```
+  Resolver = Resolver;
+
+  engines = {
+    "@lblod/ember-jobs-dashboard-engine": {
+      dependencies: {
+        services: [
+          'store'
+        ]
+      }
+    }
+  }
+ 
+  ....
+```
+
+## Models
+
+You will find all jobs-dashboard related models in this repo's models folder. The have to be added to the host's models folder. The reason this has to be done manually is to prevent potential unwanted side effect when including this automatically.
+
+After adding the models files you will need to add the following rules to the host app its `app/models/custom-inflector-rules.js` file:
+```
+inflector.irregular('job', 'jobs');
+inflector.irregular('task', 'tasks');
+inflector.irregular('remote-data-object', 'remote-data-objects');
+```
+
 
 
 License
