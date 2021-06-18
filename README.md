@@ -70,6 +70,9 @@ inflector.irregular('task', 'tasks');
 inflector.irregular('remote-data-object', 'remote-data-objects');
 ```
 
+## Backend
+
+Since we included model files you most likely already know that the backend will also need additions too. Assuming a semantic.works stack you will need to add additional resource defintions in the config/resource folder. You can find the required definitions here: [resources-files](https://github.com/lblod/app-lblod-harvester/tree/master/config/resources). You can also find an example of authorization management for these resources in the config/authorization folder of that same repo.
 
 
 License
