@@ -1,7 +1,46 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { task, restartableTask, timeout } from 'ember-concurrency';
+import { inject as service } from '@ember/service';
 
 export default class IndexController extends Controller {
-  page = 0;
+  @service store;
+
   sort = '-created';
   size = 15;
+
+  @tracked page = 0;
+  @tracked creatorValue = "";
+  @tracked operationValue = "";
+
+  @action
+    resetFilter(){
+      this.creatorValue = "";
+      this.operationValue = "";
+      this.updateSearch.perform();
+    }
+
+  @task
+    *queryStore() {
+      const filter = {};
+
+      if(this.creatorValue) filter.creator = this.creatorValue;
+      if(this.operationValue) filter.operation = this.operationValue;
+
+      const jobs = yield this.store.query('job', {
+        page: { size: this.size, number: this.page },
+        filter: filter,
+        sort: this.sort
+      });
+      return jobs;
+    }
+
+  @restartableTask
+    *updateSearch() {
+      yield timeout(500);
+      this.page = 0;
+      const model = yield this.queryStore.perform();
+      this.model = model;
+    }
 }
