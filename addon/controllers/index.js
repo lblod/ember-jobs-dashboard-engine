@@ -7,17 +7,21 @@ import { inject as service } from '@ember/service';
 export default class IndexController extends Controller {
   @service store;
 
-  sort = '-created';
   size = 15;
 
+  @tracked sort = '-created';
   @tracked page = 0;
   @tracked creatorValue = "";
   @tracked operationValue = "";
+
+  queryParams = ['creatorValue', 'operationValue'];
 
   @action
     resetFilter(){
       this.creatorValue = "";
       this.operationValue = "";
+      this.sort = '-created';
+      this.page = 0;
       this.updateSearch.perform();
     }
 

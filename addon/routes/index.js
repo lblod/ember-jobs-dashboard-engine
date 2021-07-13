@@ -7,9 +7,19 @@ export default class IndexRoute extends Route.extend(DataTableRouteMixin) {
   modelName = 'job';
 
   mergeQueryOptions(param) {
-    return {
-      sort: param.sort
+    const query = {
+      sort: param.sort,
     };
+
+    if (param.creatorValue) {
+      query['filter[creator]'] = param.creatorValue;
+    }
+
+    if (param.operationValue) {
+      query['filter[operation]'] = param.operationValue;
+    }
+
+    return query;
   }
 }
 
