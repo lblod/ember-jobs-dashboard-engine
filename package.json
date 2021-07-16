@@ -1,6 +1,6 @@
 {
   "name": "@lblod/ember-jobs-dashboard-engine",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Dashboard engine to easily manage harvesting jobs",
   "keywords": [
     "ember-addon",
