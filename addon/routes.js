@@ -1,10 +1,10 @@
 import buildRoutes from 'ember-engines/routes';
 
-export default buildRoutes(function() {
-  this.route('details', { path: '/:id' }, function(){
+export default buildRoutes(function () {
+  this.route('details', { path: '/:id' }, function () {
     this.route('index');
   });
-  this.route('task', { path: '/task/:id' }, function(){
+  this.route('task', { path: '/task/:id' }, function () {
     this.route('input-containers-files');
     this.route('results-containers-files');
     this.route('input-containers-graph');
@@ -12,4 +12,3 @@ export default buildRoutes(function() {
     this.route('input-containers-harvesting-collections');
   });
 });
-
