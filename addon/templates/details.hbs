@@ -3,13 +3,13 @@
     <AuHeading @skin="2">Job Details</AuHeading>
 
     <AuButtonGroup>
-    {{#unless this.deleteJob.isRunning}}
+    {{#if this.deleteJob.isRunning}}
+      <AuLoader @padding="small" />
+     {{else}}
       <AuButton @alert={{true}} {{on "click" (perform this.deleteJob this.model)}} >
           delete
       </AuButton>
-     {{else}}
-      <AuLoader @padding="small" />
-    {{/unless}}
+    {{/if}}
     <LinkTo @route="index">
       <AuButton  @skin="secondary">
         Back to overview
