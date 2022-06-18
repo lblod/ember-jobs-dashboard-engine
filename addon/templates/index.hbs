@@ -1,28 +1,31 @@
-<AuToolbar @border="bottom" @size="large">
-  <AuToolbarGroup class="au-c-toolbar_space-between">
+<AuToolbar @size="large" as | Group |>
+  <Group>
     <AuHeading @skin="2">Job Overview</AuHeading>
-    <AuButton @skin="secondary" {{on 'click' this.resetFilter}}>
-      <i class="vi vi-cross vi-u-link button__icon" aria-hidden="true"></i> Reset all filters
-    </AuButton>
-  </AuToolbarGroup>
-  <AuToolbarGroup class="au-c-toolbar__group--row">
-    <ul class="au-o-grid">
-      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
-        <label class="label--subtle form__label">Creator</label>
-        <CreatorFilter
-          @value={{this.creatorValue}}
-          @onChange={{perform this.updateSearch}}
-        />
-      </li>
-      <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
-        <label class="label--subtle form__label">Operation</label>
-        <OperationFilter
-          @value={{this.operationValue}}
-          @onChange={{perform this.updateSearch}}
-        />
-      </li>
-    </ul>
-  </AuToolbarGroup>
+  </Group>
+  {{#if this.isFiltering}}
+    <Group>
+      <AuButton
+        @icon="undo"
+        @iconAlignment="left"
+        {{on 'click' this.resetFilter}}>
+        Reset all filters
+      </AuButton>
+    </Group>
+  {{/if}}
+</AuToolbar>
+<AuToolbar @size="large" as | Group |>
+  <Group>
+    <div class="au-c-form--inline au-u-flex--inline au-u-flex--wrap">
+      <CreatorFilter
+        class="au-u-margin-right-small"
+        @value={{this.creatorValue}}
+        @onChange={{perform this.updateSearch}}/>
+      <OperationFilter
+        class="au-u-margin-right-small"
+        @value={{this.operationValue}}
+        @onChange={{perform this.updateSearch}}/>
+    </div>
+  </Group>
 </AuToolbar>
 
 <AuDataTable

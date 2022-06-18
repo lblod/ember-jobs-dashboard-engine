@@ -1,1 +1,14 @@
-<AuInput id="creator-filter" @width="block" @value={{@value}} {{on 'input' this.onChange}}/>
+<AuFormRow
+  @alignment="default"
+  ...attributes>
+  {{#let (unique-id) as | creatorId |}}
+    <AuLabel for={{creatorId}}>
+      Creator
+    </AuLabel>
+    <AuInput
+      id={{creatorId}}
+      @width="block"
+      @value={{@value}}
+      {{on 'input' this.onChange}}/>
+  {{/let}}
+</AuFormRow>

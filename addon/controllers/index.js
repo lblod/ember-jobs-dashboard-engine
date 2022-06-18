@@ -16,6 +16,10 @@ export default class IndexController extends Controller {
 
   queryParams = ['creatorValue', 'operationValue'];
 
+  get isFiltering() {
+    return !!(this.creatorValue !== '' || this.operationValue !== '');
+  }
+
   @action
   resetFilter() {
     this.creatorValue = '';
