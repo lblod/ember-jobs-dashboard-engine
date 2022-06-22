@@ -35,6 +35,7 @@
     "ember-cli-htmlbars": "^5.7.2",
     "ember-concurrency": "^2.1.0",
     "ember-data-table": "^2.1.0",
+    "ember-intl": "^5.7.2",
     "ember-power-select": "^5.0.4",
     "ember-unique-id-helper-polyfill": "^1.2.0"
   },

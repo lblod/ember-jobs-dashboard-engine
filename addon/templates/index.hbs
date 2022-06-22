@@ -1,6 +1,6 @@
 <AuToolbar @size="large" as | Group |>
   <Group>
-    <AuHeading @skin="2">Job Overview</AuHeading>
+  <AuHeading @skin="2">{{t "jobs.overview.title"}}</AuHeading>
   </Group>
   {{#if this.isFiltering}}
     <Group>
@@ -8,7 +8,7 @@
         @icon="undo"
         @iconAlignment="left"
         {{on 'click' this.resetFilter}}>
-        Reset all filters
+        {{t "jobs.general.reset-filters"}}
       </AuButton>
     </Group>
   {{/if}}
@@ -28,50 +28,58 @@
   </Group>
 </AuToolbar>
 
-<AuDataTable
-  @content={{this.model}}
-  @isLoading={{this.queryStore.isRunning}}
-  @fields="title description"
-  @noDataMessage="No jobs found"
-  @sort={{this.sort}}
-  @size={{this.size}}
-  @page={{this.page}} as |t|>
-  <t.content as |c|>
-    <c.header>
-      <th class="au-u-visible-small-up">uri</th>
-      <AuDataTableThSortable @field="created" @currentSorting={{this.sort}} @label="Created" @class="data-table__header-title" />
-      <AuDataTableThSortable @field="modified" @currentSorting={{this.sort}} @label="Modified" @class="data-table__header-title" />
-      <AuDataTableThSortable @field="creator" @currentSorting={{this.sort}} @label="Creator" @class="data-table__header-title" />
-      <AuDataTableThSortable @field="operation" @currentSorting={{this.sort}} @label="Operation" @class="data-table__header-title" />
-      <AuDataTableThSortable @field="status" @currentSorting={{this.sort}} @label="Status" @class="data-table__header-title" />
-      <th class="au-u-visible-small-up">Action</th>
-    </c.header>
-    <c.body as |row|>
-      <td>
-        {{row.uri}}
-      </td>
-      <td>
-        {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
-      </td>
-      <td class="au-u-visible-small-up">
+{{#let (t "jobs.overview.data.uri")
+       (t "jobs.overview.data.created")
+       (t "jobs.overview.data.modified")
+       (t "jobs.overview.data.creator")
+       (t "jobs.overview.data.operation")
+       (t "jobs.overview.data.status")
+       (t "jobs.overview.data.action")
+       (t "jobs.overview.data.view")
+  as | uri cr mo co op st action view |}}
+  <AuDataTable
+    @content={{this.model}}
+    @isLoading={{this.queryStore.isRunning}}
+    @fields="title description"
+    @noDataMessage={{t "jobs.overview.data.nodata"}}
+    @sort={{this.sort}}
+    @size={{this.size}}
+    @page={{this.page}} as |t|>
+    <t.content as |c|>
+      <c.header>
+        <th class="au-u-visible-small-up">{{uri}}</th>
+        <AuDataTableThSortable @label={{cr}} @field="created" @currentSorting={{this.sort}} @class="data-table__header-title" />
+        <AuDataTableThSortable @label={{mo}} @field="modified" @currentSorting={{this.sort}} @class="data-table__header-title" />
+        <AuDataTableThSortable @label={{co}} @field="creator" @currentSorting={{this.sort}} @class="data-table__header-title" />
+        <AuDataTableThSortable @label={{op}} @field="operation" @currentSorting={{this.sort}} @class="data-table__header-title" />
+        <AuDataTableThSortable @label={{st}} @field="status" @currentSorting={{this.sort}} @class="data-table__header-title" />
+        <th class="au-u-visible-small-up">{{action}}</th>
+      </c.header>
+      <c.body as |row|>
+        <td>
+          {{row.uri}}
+        </td>
+        <td>
+          {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
+        </td>
+        <td class="au-u-visible-small-up">
           {{format-date row.modified 'dd/MM/yyyy HH:mm:ss'}}
-      </td>
-      <td class="au-u-visible-medium-up">
+        </td>
+        <td class="au-u-visible-medium-up">
           {{row.creator}}
-      </td>
-      <td class="au-u-visible-small-up au-word-wrap">
+        </td>
+        <td class="au-u-visible-small-up au-word-wrap">
           {{row.operation}}
-      </td>
-      <td class="au-u-visible-small-up">
+        </td>
+        <td class="au-u-visible-small-up">
           <StatusPill @status={{row.shortStatus}}></StatusPill>
-      </td>
-      <td class="au-u-visible-large-up">
-        <LinkTo @route="details" @model={{row}} >
-          <AuButton @skin="primary">
-            view
-          </AuButton>
-        </LinkTo>
-      </td>
-    </c.body>
-  </t.content>
-</AuDataTable>
+        </td>
+        <td class="au-u-visible-large-up">
+          <AuLink @route="details" @model={{row}} @skin="button">
+            {{view}}
+          </AuLink>
+        </td>
+      </c.body>
+    </t.content>
+  </AuDataTable>
+{{/let}}
