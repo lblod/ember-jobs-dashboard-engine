@@ -6,14 +6,14 @@ export default class TaskInputRoute extends Route.extend(DataTableRouteMixin) {
   @service() store;
   modelName = 'file';
 
-  async beforeModel(){
+  async beforeModel() {
     this.taskId = await this.modelFor('task').id;
   }
 
   mergeQueryOptions(param) {
     return {
       'filter[data-container][input-from-tasks][:id:]': this.taskId,
-      sort: param.sort
+      sort: param.sort,
     };
   }
 }

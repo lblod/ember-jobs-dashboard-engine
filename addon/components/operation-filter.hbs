@@ -1,1 +1,14 @@
-<AuInput id="operation-filter" @width="block" @value={{@value}} {{on 'input' this.onChange}}/>
+<AuFormRow
+  @alignment="default"
+  ...attributes>
+  {{#let (unique-id) as | operationId |}}
+    <AuLabel for={{operationId}}>
+      {{t "jobs.overview.data.operation"}}
+    </AuLabel>
+    <AuInput
+      id={{operationId}}
+      @width="block"
+      @value={{@value}}
+      {{on 'input' this.onChange}}/>
+  {{/let}}
+</AuFormRow>

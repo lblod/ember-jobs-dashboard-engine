@@ -11,40 +11,44 @@ export default class IndexController extends Controller {
 
   @tracked sort = '-created';
   @tracked page = 0;
-  @tracked creatorValue = "";
-  @tracked operationValue = "";
+  @tracked creatorValue = '';
+  @tracked operationValue = '';
 
   queryParams = ['creatorValue', 'operationValue'];
 
+  get isFiltering() {
+    return !!(this.creatorValue !== '' || this.operationValue !== '');
+  }
+
   @action
-    resetFilter(){
-      this.creatorValue = "";
-      this.operationValue = "";
-      this.sort = '-created';
-      this.page = 0;
-      this.updateSearch.perform();
-    }
+  resetFilter() {
+    this.creatorValue = '';
+    this.operationValue = '';
+    this.sort = '-created';
+    this.page = 0;
+    this.updateSearch.perform();
+  }
 
   @task
-    *queryStore() {
-      const filter = {};
+  *queryStore() {
+    const filter = {};
 
-      if(this.creatorValue) filter.creator = this.creatorValue;
-      if(this.operationValue) filter.operation = this.operationValue;
+    if (this.creatorValue) filter.creator = this.creatorValue;
+    if (this.operationValue) filter.operation = this.operationValue;
 
-      const jobs = yield this.store.query('job', {
-        page: { size: this.size, number: this.page },
-        filter: filter,
-        sort: this.sort
-      });
-      return jobs;
-    }
+    const jobs = yield this.store.query('job', {
+      page: { size: this.size, number: this.page },
+      filter: filter,
+      sort: this.sort,
+    });
+    return jobs;
+  }
 
   @restartableTask
-    *updateSearch() {
-      yield timeout(500);
-      this.page = 0;
-      const model = yield this.queryStore.perform();
-      this.model = model;
-    }
+  *updateSearch() {
+    yield timeout(500);
+    this.page = 0;
+    const model = yield this.queryStore.perform();
+    this.model = model;
+  }
 }

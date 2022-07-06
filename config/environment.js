@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const ENV = {
     modulePrefix: '@lblod/ember-jobs-dashboard-engine',
-    environment: environment
-  }
+    environment: environment,
+  };
 
   return ENV;
 };

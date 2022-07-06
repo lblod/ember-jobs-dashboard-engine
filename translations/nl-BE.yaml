@@ -1,0 +1,84 @@
+jobs:
+  general:
+    reset-filters: "Filters verwijderen"
+  overview:
+    title: "Job overzicht"
+    data:
+      nodata: "Geen taken gevonden"
+      uri: "URI"
+      created: "Gecreëerd"
+      modified: "Bewerkt"
+      creator: "Maker"
+      operation: "Operatie"
+      status: "Status"
+      action: "Actie"
+      view: "Bekijk"
+  details:
+    title: "Job details"
+    delete: "Verwijder"
+    back: "Terug naar overzicht"
+    uri: "URI"
+    creator: "Maker"
+    created: "Gemaakt"
+    modified: "Bewerkt"
+    status: "Status"
+    error_title: "Error"
+    tasks:
+      title: "Takenlijst"
+      data:
+        nodata: "Geen bestanden gevonden"
+        uri: "URI"
+        created: "Gemaakt"
+        operation: "Operatie"
+        index: "Index"
+        status: "Status"
+        info: "Info"
+  tasks:
+    title: "Taak details"
+    back: "Terug naar overzicht"
+    uri: "URI"
+    operation: "Operatie"
+    task_created: "Taak gemaakt"
+    modified: "Taak bewerkt"
+    status: "Status"
+    error_title: "Error"
+    icf:
+      link_input: "Lijst met invoerbestanden"
+      link_result: "Lijst met resultaatbestanden"
+      link_input_graphs: "Lijst met invoergrafen"
+      link_result_graphs: "Lijst met resultaatgrafen"
+      link_remote: "Lijst met externe invoer dataobjecten"
+  icf:
+    title: "Lijst van invoerbestanden"
+    data:
+      nodata: "Geen bestanden gevonden"
+      id: "ID"
+      name: "Naam"
+      size: "Grootte"
+      created: "Gecreëerd"
+      action: "Actie"
+      download: "Download bestand"
+  icg:
+    title: "Lijst met invoergrafen"
+    data:
+      nodata: "Geen grafen gevonden"
+      uri: "URI"
+  ichc:
+    title: "Lijst met externe invoer dataobjecten"
+    uri: "URI"
+    source: "Bron (URL)"
+  rcf:
+    title: "Lijst met resultaatbestanden"
+    data:
+      nodata: "Geen bestanden gevonden"
+      id: "ID"
+      name: "Naam"
+      size: "Grootte"
+      created: "Gecreëerd"
+      action: "Actie"
+      download: "Download bestand"
+  rcg:
+    title: "Lijst met resultaatgrafen"
+    data:
+      nodata: "Geen grafen gevonden"
+      uri: "URI"

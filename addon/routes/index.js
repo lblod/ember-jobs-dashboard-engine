@@ -22,4 +22,3 @@ export default class IndexRoute extends Route.extend(DataTableRouteMixin) {
     return query;
   }
 }
-

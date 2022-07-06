@@ -6,7 +6,7 @@ export default class CreatorFilterComponent extends Component {
   @tracked value;
 
   @action
-    onChange(){
-      this.args.onChange(this.value);
-    }
+  onChange() {
+    this.args.onChange(this.value);
+  }
 }

@@ -1,73 +1,77 @@
 <AuButtonGroup class="au-o-box" @inline={{true}}>
   <LinkTo @route="task.input-containers-files">
-    <AuButton>
-      List with input files
+    <AuButton @skin="secondary" class="is-active">
+      {{t "jobs.tasks.icf.link_input"}}
     </AuButton>
   </LinkTo>
-    <LinkTo @route="task.results-containers-files" class="is-active">
-      <AuButton @skin="secondary">
-       List with results files
-      </AuButton>
-    </LinkTo>
+  <LinkTo @route="task.results-containers-files">
+    <AuButton @skin="secondary" class="is-active">
+      {{t "jobs.tasks.icf.link_result"}}
+    </AuButton>
+  </LinkTo>
   <LinkTo @route="task.input-containers-graph">
-    <AuButton>
-     List with input graphs
+    <AuButton >
+      {{t "jobs.tasks.icf.link_input_graphs"}}
     </AuButton>
   </LinkTo>
   <LinkTo @route="task.results-containers-graph">
     <AuButton >
-     List with results graphs
+      {{t "jobs.tasks.icf.link_result_graphs"}}
     </AuButton>
   </LinkTo>
   <LinkTo @route="task.input-containers-harvesting-collections">
     <AuButton>
-     List with input remote data objects
+      {{t "jobs.tasks.icf.link_remote"}}
     </AuButton>
   </LinkTo>
 </AuButtonGroup>
 
+<AuHeading @skin="3" class="au-o-box">{{t "jobs.rcf.title"}}</AuHeading>
 
-<AuHeading @skin="3" class="au-o-box">Files result list</AuHeading>
-
-<AuDataTable
-  @content={{this.model}}
-  @fields="title description"
-  @noDataMessage="No files found"
-  @sort={{this.sort}}
-  @size={{this.size}}
-  @page={{this.page}} as |t|>
-  <t.content as |c|>
-    <c.header>
-      <th class="au-u-visible-small-up">id</th>
-      <AuDataTableThSortable @field="name" @currentSorting={{this.sort}} @label="Name"
-        @class="data-table__header-title" />
-      <th class="data-table__header-title"> Size </th>
-      <AuDataTableThSortable @field="created" @currentSorting={{this.sort}} @label="Created"
-        @class="data-table__header-title" />
-
-      <th class="au-u-visible-small-up">Action</th>
-    </c.header>
-    <c.body as |row|>
-      <td class="au-u-visible-small-up">
-        {{row.uri}}
-      </td>
-      <td>
-        {{row.name}}
-      </td>
-      <td>
-        {{row.humanReadableSize}}
-      </td>
-      <td>
-        {{moment-format row.created 'DD/MM/YYYY HH:mm:ss'}}
-      </td>
-
-      <td class="au-u-visible-small-up">
-        <a class="au-c-link" href="{{row.downloadLink}}" download {{on 'click' this.overrideClick }}>
-          <AuButton @skin="primary">
-            Download file
-          </AuButton>
-        </a>
-      </td>
-    </c.body>
-  </t.content>
-</AuDataTable>
+{{#let (t "jobs.rcf.data.nodata")
+       (t "jobs.rcf.data.id")
+       (t "jobs.rcf.data.name")
+       (t "jobs.rcf.data.size")
+       (t "jobs.rcf.data.created")
+       (t "jobs.rcf.data.action")
+       (t "jobs.rcf.data.download")
+  as | nodata id na si cr ac download |}}
+  <AuDataTable
+    @content={{this.model}}
+    @fields="title description"
+    @noDataMessage={{nodata}}
+    @sort={{this.sort}}
+    @size={{this.size}}
+    @page={{this.page}} as |t|>
+    <t.content as |c|>
+      <c.header>
+        <th class="au-u-visible-small-up">{{id}}</th>
+        <AuDataTableThSortable @label={{na}} @field="name" @currentSorting={{this.sort}} @class="data-table__header-title"/>
+        <th class="data-table__header-title">{{si}}</th>
+        <AuDataTableThSortable @label={{cr}} @field="created" @currentSorting={{this.sort}} @class="data-table__header-title"/>
+        <th class="au-u-visible-small-up">{{ac}}</th>
+      </c.header>
+      <c.body as |row|>
+        <td class="au-u-visible-small-up">
+          {{row.uri}}
+        </td>
+        <td>
+          {{row.name}}
+        </td>
+        <td>
+          {{row.humanReadableSize}}
+        </td>
+        <td>
+          {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
+        </td>
+        <td class="au-u-visible-small-up">
+          <a class="au-c-link" href="{{row.downloadLink}}" download {{on 'click' this.overrideClick }}>
+            <AuButton @skin="primary">
+              {{download}}
+            </AuButton>
+          </a>
+        </td>
+      </c.body>
+    </t.content>
+  </AuDataTable>
+{{/let}}
