@@ -1,0 +1,38 @@
+---
+kind: pipeline
+type: docker
+name: verify
+steps:
+- name: install
+  image: danlynn/ember-cli:3.28.0
+  commands:
+  - npm install
+- name: lint
+  image: danlynn/ember-cli:3.28.0
+  commands:
+  - npm run lint
+- name: test
+  image: danlynn/ember-cli:3.28.0
+  failure: ignore
+  commands:
+  - npm run test:ember
+trigger:
+  event:
+    - pull_request
+---
+kind: pipeline
+type: docker
+name: release
+steps:
+- name: npm-release
+  image: plugins/npm
+  settings:
+    token:
+      from_secret: npm_access_token
+trigger:
+  event:
+    - tag
+---
+kind: secret
+name: npm_access_token
+data: 3JEShZuHpoD3Uw8ZH/KIxuc/JcxOPd/9m5N9BJm8m/LRMraLxgqg/KPhlrTWk7YUxs4jOSVGzwmtarYQZW6ZZ8MVaDE=
