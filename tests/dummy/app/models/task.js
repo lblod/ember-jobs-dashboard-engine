@@ -2,12 +2,12 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class TaskModel extends Model {
   @attr uri;
-  @attr status;
   @attr('date') created;
   @attr('date') modified;
-  @attr operation;
   @attr index;
 
+  @belongsTo('operation') operation;
+  @belongsTo('status') status;
   @belongsTo('job-error') error;
   @belongsTo('job') job;
 
@@ -16,17 +16,4 @@ export default class TaskModel extends Model {
   //Due to lack of inheritance in mu-cl-resource, we directly link to file and collection, stuff we need here.
   @hasMany('data-container') resultsContainers;
   @hasMany('data-container') inputContainers;
-
-  //TODO: move this later to a propery modeled skos:Conceptscheme from backend
-  statusesMap = {
-    'http://redpencil.data.gift/id/concept/JobStatus/busy': 'busy',
-    'http://redpencil.data.gift/id/concept/JobStatus/scheduled': 'scheduled',
-    'http://redpencil.data.gift/id/concept/JobStatus/success': 'success',
-    'http://redpencil.data.gift/id/concept/JobStatus/failed': 'failed',
-    'http://redpencil.data.gift/id/concept/JobStatus/canceled': 'canceled',
-  };
-
-  get shortStatus() {
-    return this.statusesMap[this.status];
-  }
 }

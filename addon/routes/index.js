@@ -3,13 +3,15 @@ import DataTableRouteMixin from 'ember-data-table/mixins/route';
 import { inject as service } from '@ember/service';
 
 export default class IndexRoute extends Route.extend(DataTableRouteMixin) {
-  @service() store;
+  @service store;
   modelName = 'job';
 
   mergeQueryOptions(param) {
     const query = {
       sort: param.sort,
     };
+
+    query.include = 'creator,operation,status';
 
     if (param.creatorValue) {
       query['filter[creator]'] = param.creatorValue;

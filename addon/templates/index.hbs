@@ -66,13 +66,13 @@
           {{format-date row.modified 'dd/MM/yyyy HH:mm:ss'}}
         </td>
         <td class="au-u-visible-medium-up">
-          {{row.creator}}
+          {{row.creator.label}}
         </td>
         <td class="au-u-visible-small-up au-word-wrap">
-          {{row.operation}}
+          {{row.operation.label}}
         </td>
         <td class="au-u-visible-small-up">
-          <StatusPill @status={{row.shortStatus}}></StatusPill>
+          <StatusPill @status={{row.status}} />
         </td>
         <td class="au-u-visible-large-up">
           <AuLink @route="details" @model={{row}} @skin="button">

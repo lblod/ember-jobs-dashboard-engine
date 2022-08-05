@@ -3,8 +3,8 @@ import DataTableRouteMixin from 'ember-data-table/mixins/route';
 import { inject as service } from '@ember/service';
 
 export default class TaskInputRoute extends Route.extend(DataTableRouteMixin) {
-  @service() store;
-  modelName = 'file';
+  @service store;
+  modelName = 'data-container';
 
   async beforeModel() {
     this.taskId = await this.modelFor('task').id;
@@ -12,7 +12,7 @@ export default class TaskInputRoute extends Route.extend(DataTableRouteMixin) {
 
   mergeQueryOptions(param) {
     return {
-      'filter[data-container][input-from-tasks][:id:]': this.taskId,
+      'filter[input-from-tasks][:id:]': this.taskId,
       sort: param.sort,
     };
   }

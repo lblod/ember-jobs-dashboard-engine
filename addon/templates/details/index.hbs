@@ -33,17 +33,16 @@
           {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
         </td>
         <td class="au-u-visible-small-up au-word-wrap">
-          {{row.operation}}
+          {{row.operation.label}}
         </td>
         <td class="au-u-visible-small-up">
           {{row.index}}
         </td>
         <td class="au-u-visible-small-up">
-          {{row.name}}
-          <StatusPill @status={{row.shortStatus}}></StatusPill>
+          <StatusPill @status={{row.status}} />
         </td>
         <td class="au-u-visible-small-up">
-          <AuLink @route="task.input-containers-files" @model={{row}} @skin="primary">
+          <AuLink @route="task.input-containers-files" @model={{row}} @skin="button">
             {{view}}
           </AuLink>
         </td>

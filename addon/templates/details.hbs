@@ -25,7 +25,7 @@
       </li>
       <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
         <AuLabel>{{t "jobs.details.creator"}}</AuLabel>
-        <p class="au-word-wrap">{{this.model.creator}}</p>
+        <p class="au-word-wrap">{{this.model.creator.label}}</p>
       </li>
       <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
         <AuLabel>{{t "jobs.details.created"}}</AuLabel>
@@ -37,7 +37,7 @@
       </li>
       <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
         <AuLabel>{{t "jobs.details.status"}}</AuLabel>
-        <StatusPill @status={{this.model.shortStatus}}></StatusPill>
+        <StatusPill @status={{this.model.status}} />
       </li>
       <li class="au-o-grid__item au-u-1-2 au-u-2-6@medium">
         {{#if this.model.error.message}}

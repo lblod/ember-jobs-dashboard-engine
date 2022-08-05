@@ -33,10 +33,12 @@ jobs:
         index: "Index"
         status: "Status"
         info: "Info"
+        view: "Bekijk"
   tasks:
     title: "Taak details"
     back: "Terug naar overzicht"
     uri: "URI"
+    created: "Gemaakt"
     operation: "Operatie"
     task_created: "Taak gemaakt"
     modified: "Taak bewerkt"
