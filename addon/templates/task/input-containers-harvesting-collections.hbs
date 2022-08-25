@@ -36,7 +36,7 @@
   as | nodata uri so |}}
   <AuDataTable
     @content={{this.model}}
-    @noDataMessage="No remote-data-objects found"
+    @noDataMessage={{nodata}}
     as |t|>
     <t.content as |c|>
       <c.header>

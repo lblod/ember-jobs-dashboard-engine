@@ -67,8 +67,10 @@ jobs:
       uri: "URI"
   ichc:
     title: "Lijst met externe invoer dataobjecten"
-    uri: "URI"
-    source: "Bron (URL)"
+    data:
+      nodata: "Geen bronnen gevonden"
+      uri: "URI"
+      source: "Bron (URL)"
   rcf:
     title: "Lijst met resultaatbestanden"
     data:

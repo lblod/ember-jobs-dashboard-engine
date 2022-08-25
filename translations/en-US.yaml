@@ -67,8 +67,10 @@ jobs:
       uri: "URI"
   ichc:
     title: "List with remote data objects"
-    uri: "URI"
-    source: "Source (URL)"
+    data:
+      nodata: "No remote data object found"
+      uri: "URI"
+      source: "Source (URL)"
   rcf:
     title: "Files result list"
     data:
