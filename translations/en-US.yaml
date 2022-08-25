@@ -33,6 +33,7 @@ jobs:
         index: "Index"
         status: "Status"
         info: "Info"
+        view: "View"
   tasks:
     title: "Task details"
     back: "Back to overview"
