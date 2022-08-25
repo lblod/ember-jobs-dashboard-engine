@@ -38,6 +38,7 @@ jobs:
     title: "Taak details"
     back: "Terug naar overzicht"
     uri: "URI"
+    created: "Gemaakt"
     operation: "Operatie"
     task_created: "Taak gemaakt"
     modified: "Taak bewerkt"

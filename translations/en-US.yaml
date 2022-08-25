@@ -38,6 +38,7 @@ jobs:
     title: "Task details"
     back: "Back to overview"
     uri: "URI"
+    created: "Created"
     operation: "Operation"
     task_created: "Task Created"
     modified: "Task Modified"
