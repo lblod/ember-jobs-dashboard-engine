@@ -2,7 +2,7 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class FileModel extends Model {
   @attr uri;
-  @attr name;
+  @attr filename;
   @attr format;
   @attr size;
   @attr extension;
@@ -20,6 +20,6 @@ export default class FileModel extends Model {
   }
 
   get downloadLink() {
-    return `/files/${this.id}/download?name=${this.name}`;
+    return `/files/${this.id}/download?name=${this.filename}`;
   }
 }
