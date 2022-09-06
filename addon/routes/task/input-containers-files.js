@@ -3,7 +3,7 @@ import DataTableRouteMixin from 'ember-data-table/mixins/route';
 import { inject as service } from '@ember/service';
 
 export default class TaskInputRoute extends Route.extend(DataTableRouteMixin) {
-  @service() store;
+  @service store;
   modelName = 'file';
 
   async beforeModel() {

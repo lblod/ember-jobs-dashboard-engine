@@ -1,6 +1,6 @@
 <AuButtonGroup class="au-o-box" @inline={{true}}>
   <LinkTo @route="task.input-containers-files">
-    <AuButton @skin="secondary" class="is-active">
+    <AuButton>
       {{t "jobs.tasks.icf.link_input"}}
     </AuButton>
   </LinkTo>
@@ -65,11 +65,15 @@
           {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
         </td>
         <td class="au-u-visible-small-up">
-          <a class="au-c-link" href="{{row.downloadLink}}" download {{on 'click' this.overrideClick }}>
-            <AuButton @skin="primary">
-              {{download}}
-            </AuButton>
-          </a>
+          <AuLinkExternal
+            @skin="primary"
+            @icon="download"
+            @iconAlignment="left"
+            href={{row.downloadLink}}
+            download={{row.name}}
+            {{on "click" this.overrideClick}}>
+            {{download}}
+          </AuLinkExternal>
         </td>
       </c.body>
     </t.content>

@@ -65,9 +65,15 @@
           {{format-date row.created 'dd/MM/yyyy HH:mm:ss'}}
         </td>
         <td class="au-u-visible-small-up">
-          <a class="au-c-link" href="{{row.downloadLink}}" download {{on 'click' this.overrideClick }}>
-            <AuButton @skin="primary">{{download}}</AuButton>
-          </a>
+          <AuLinkExternal
+            @skin="primary"
+            @icon="download"
+            @iconAlignment="left"
+            href={{row.downloadLink}}
+            download={{row.name}}
+            {{on "click" this.overrideClick}}>
+            {{download}}
+          </AuLinkExternal>
         </td>
       </c.body>
     </t.content>
