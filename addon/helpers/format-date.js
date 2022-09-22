@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 
 export default helper(function formatDate([datetime, formatString]) {
   if (!(datetime instanceof Date)) return '';
