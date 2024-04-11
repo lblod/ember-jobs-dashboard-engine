@@ -7,7 +7,7 @@ The ember-jobs-dashboard-engine is the engine version of [frontend-harvesting-se
 
 * Ember.js v3.28 or above
 * Ember CLI v3.28 or above
-* Node.js v12 or above
+* Node.js v16 or above
 
 
 ## Installation
