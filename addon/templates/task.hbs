@@ -1,5 +1,5 @@
-<AuToolbar @border="bottom" @size="large">
-  <AuToolbarGroup class="au-c-toolbar__group--row au-c-toolbar_space-between">
+<AuToolbar @border="bottom" @size="large" as |Group|>
+  <Group class="au-c-toolbar__group--row au-c-toolbar_space-between">
     <AuHeading @skin="2">{{t "jobs.tasks.title"}}</AuHeading>
     <AuButtonGroup>
       <LinkTo @route="index">
@@ -8,8 +8,8 @@
         </AuButton>
       </LinkTo>
     </AuButtonGroup>
-  </AuToolbarGroup>
-  <AuToolbarGroup class="au-c-toolbar__group--row">
+  </Group>
+  <Group class="au-c-toolbar__group--row">
     <ul class="au-o-grid">
       <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
         <AuLabel>{{t "jobs.tasks.uri"}}</AuLabel>
@@ -39,7 +39,7 @@
         {{/if}}
       </li>
     </ul>
-  </AuToolbarGroup>
+  </Group>
 </AuToolbar>
 
 {{outlet}}

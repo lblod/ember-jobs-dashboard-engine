@@ -1,23 +1,23 @@
-<AuToolbar @border="bottom" @size="large">
-  <AuToolbarGroup class="au-c-toolbar__group--row au-c-toolbar_space-between">
-  <AuHeading @skin="2">{{t "jobs.details.title"}}</AuHeading>
+<AuToolbar @border="bottom" @size="large" as |Group|>
+  <Group class="au-c-toolbar__group--row au-c-toolbar_space-between">
+    <AuHeading @skin="2">{{t "jobs.details.title"}}</AuHeading>
 
     <AuButtonGroup>
-    {{#if this.deleteJob.isRunning}}
-      <AuLoader @padding="small" />
-     {{else}}
-       <AuButton @alert={{true}} {{on "click" (perform this.deleteJob this.model)}}>
-        {{t "jobs.details.delete"}}
-       </AuButton>
-    {{/if}}
-    <LinkTo @route="index">
-      <AuButton  @skin="secondary">
-        {{t "jobs.details.back"}}
-      </AuButton>
-    </LinkTo>
+      {{#if this.deleteJob.isRunning}}
+        <AuLoader @padding="small" />
+      {{else}}
+        <AuButton @alert={{true}} {{on "click" (perform this.deleteJob this.model)}}>
+          {{t "jobs.details.delete"}}
+        </AuButton>
+      {{/if}}
+      <LinkTo @route="index">
+        <AuButton  @skin="secondary">
+          {{t "jobs.details.back"}}
+        </AuButton>
+      </LinkTo>
     </AuButtonGroup>
-  </AuToolbarGroup>
-  <AuToolbarGroup class="au-c-toolbar__group--row">
+  </Group>
+  <Group class="au-c-toolbar__group--row">
     <ul class="au-o-grid">
       <li class="au-o-grid__item au-u-1-2 au-u-1-6@medium">
         <AuLabel>{{t "jobs.details.uri"}}</AuLabel>
@@ -47,7 +47,7 @@
         {{/if}}
       </li>
     </ul>
-  </AuToolbarGroup>
+  </Group>
 </AuToolbar>
 
 {{outlet}}
