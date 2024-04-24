@@ -29,6 +29,20 @@ export default class IndexController extends Controller {
     this.updateSearch.perform();
   }
 
+  @action
+  handleCreatorChange(value) {
+    this.creatorValue = value;
+
+    this.updateSearch.perform();
+  }
+
+  @action
+  handleOperationChange(value) {
+    this.operationValue = value;
+
+    this.updateSearch.perform();
+  }
+
   @task
   *queryStore() {
     const filter = {};
