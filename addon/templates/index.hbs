@@ -19,11 +19,11 @@
       <CreatorFilter
         class="au-u-margin-right-small"
         @value={{this.creatorValue}}
-        @onChange={{perform this.updateSearch}}/>
+        @onChange={{this.handleCreatorChange}}/>
       <OperationFilter
         class="au-u-margin-right-small"
         @value={{this.operationValue}}
-        @onChange={{perform this.updateSearch}}/>
+        @onChange={{this.handleOperationChange}}/>
     </div>
   </Group>
 </AuToolbar>

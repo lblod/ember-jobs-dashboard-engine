@@ -6,9 +6,9 @@
       {{t "jobs.overview.data.creator"}}
     </AuLabel>
     <AuInput
-      id={{creatorId}}
       @width="block"
-      @value={{@value}}
+      id={{creatorId}}
+      value={{@value}}
       {{on 'input' this.onChange}}/>
   {{/let}}
 </AuFormRow>

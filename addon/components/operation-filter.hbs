@@ -6,9 +6,9 @@
       {{t "jobs.overview.data.operation"}}
     </AuLabel>
     <AuInput
-      id={{operationId}}
       @width="block"
-      @value={{@value}}
+      id={{operationId}}
+      value={{@value}}
       {{on 'input' this.onChange}}/>
   {{/let}}
 </AuFormRow>
