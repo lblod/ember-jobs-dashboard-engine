@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 export default class DetailsIndexRoute extends Route.extend(
   DataTableRouteMixin
 ) {
-  @service() store;
+  @service store;
   modelName = 'task';
 
   async beforeModel() {

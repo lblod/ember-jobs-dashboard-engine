@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 export default class TaskInputContainersGraphRoute extends Route.extend(
   DataTableRouteMixin
 ) {
-  @service() store;
+  @service store;
   modelName = 'data-container';
 
   async beforeModel() {

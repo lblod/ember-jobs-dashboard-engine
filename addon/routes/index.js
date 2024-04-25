@@ -3,7 +3,7 @@ import DataTableRouteMixin from 'ember-data-table/mixins/route';
 import { service } from '@ember/service';
 
 export default class IndexRoute extends Route.extend(DataTableRouteMixin) {
-  @service() store;
+  @service store;
   modelName = 'job';
 
   mergeQueryOptions(param) {

@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 export default class TaskInputContainersHarvestingCollectionsRoute extends Route.extend(
   DataTableRouteMixin
 ) {
-  @service() store;
+  @service store;
   modelName = 'remote-data-object';
 
   async beforeModel() {
