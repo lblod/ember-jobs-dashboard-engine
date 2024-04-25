@@ -38,7 +38,7 @@
     "ember-cli-htmlbars": "^6.2.0",
     "ember-concurrency": "^2.1.0",
     "ember-data-table": "^2.1.0",
-    "ember-intl": "^5.7.2"
+    "ember-intl": "^5.7.2 || ^6.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
