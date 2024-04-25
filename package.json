@@ -29,6 +29,12 @@
     "test:ember-compatibility": "ember try:each",
     "release": "release-it"
   },
+  "overrides": {
+    "babel-plugin-ember-template-compilation": "2.2.1"
+  },
+  "overridesComments": {
+    "babel-plugin-ember-template-compilation": "v2.2.2 causes issues with ember-template-imports v3. Remove this once the issue is resolved in Appuniversum: https://github.com/appuniversum/ember-appuniversum/issues/491"
+  },
   "dependencies": {
     "@appuniversum/ember-appuniversum": "^2.18.0 || ^3.0.0",
     "@ember/legacy-built-in-components": "^0.5.0",
