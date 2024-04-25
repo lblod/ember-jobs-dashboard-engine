@@ -42,4 +42,33 @@
   </Group>
 </AuToolbar>
 
+<AuTabs as |Tab|>
+  <Tab>
+    <AuLink @route="task.input-containers-files">
+      {{t "jobs.tasks.icf.link_input"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.results-containers-files">
+      {{t "jobs.tasks.icf.link_result"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.input-containers-graph">
+      {{t "jobs.tasks.icf.link_input_graphs"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.results-containers-graph">
+      {{t "jobs.tasks.icf.link_result_graphs"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.input-containers-harvesting-collections">
+      {{t "jobs.tasks.icf.link_remote"}}
+    </AuLink>
+  </Tab>
+</AuTabs>
+
+
 {{outlet}}

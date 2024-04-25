@@ -1,31 +1,3 @@
-<AuButtonGroup class="au-o-box" @inline={{true}}>
-  <LinkTo @route="task.input-containers-files">
-    <AuButton @skin="secondary" class="is-active">
-      {{t "jobs.tasks.icf.link_input"}}
-    </AuButton>
-  </LinkTo>
-  <LinkTo @route="task.results-containers-files">
-    <AuButton>
-      {{t "jobs.tasks.icf.link_result"}}
-    </AuButton>
-  </LinkTo>
-  <LinkTo @route="task.input-containers-graph">
-    <AuButton >
-      {{t "jobs.tasks.icf.link_input_graphs"}}
-    </AuButton>
-  </LinkTo>
-  <LinkTo @route="task.results-containers-graph">
-    <AuButton >
-      {{t "jobs.tasks.icf.link_result_graphs"}}
-    </AuButton>
-  </LinkTo>
-  <LinkTo @route="task.input-containers-harvesting-collections">
-    <AuButton>
-      {{t "jobs.tasks.icf.link_remote"}}
-    </AuButton>
-  </LinkTo>
-</AuButtonGroup>
-
 <AuHeading @skin="3" class="au-o-box">{{t "jobs.icf.title"}}</AuHeading>
 
 {{#let (t "jobs.icf.data.nodata")

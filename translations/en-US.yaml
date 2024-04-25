@@ -45,11 +45,11 @@ jobs:
     status: "Status"
     error_title: "Error"
     icf:
-      link_input: "List with input files"
-      link_result: "List with results files"
-      link_input_graphs: "List with input graphs"
-      link_result_graphs: "List with results graphs"
-      link_remote: "List with input remote data objects"
+      link_input: "Input files"
+      link_result: "Results files"
+      link_input_graphs: "Input graphs"
+      link_result_graphs: "Results graphs"
+      link_remote: "Remote data objects"
   icf:
     title: "Files input list"
     data:
