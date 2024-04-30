@@ -16,6 +16,7 @@ jobs:
   details:
     title: "Job details"
     delete: "Verwijder"
+    deleting: "Aan het verwijderen"
     back: "Terug naar overzicht"
     uri: "URI"
     creator: "Maker"

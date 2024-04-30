@@ -16,6 +16,7 @@ jobs:
   details:
     title: "Job details"
     delete: "Delete"
+    deleting: "Deleting"
     back: "Back to overview"
     uri: "URI"
     creator: "Creator"
