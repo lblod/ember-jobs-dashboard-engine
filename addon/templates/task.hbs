@@ -1,13 +1,16 @@
 <AuToolbar @border="bottom" @size="large" as |Group|>
   <Group class="au-c-toolbar__group--row au-c-toolbar_space-between">
+    {{#if this.model.job}}
+      <AuLink @route="details" @icon="arrow-left" @model={{this.model.job.id}} @hideText={{true}}>
+        {{t "jobs.tasks.back_to_details"}}
+      </AuLink>
+    {{/if}}
     <AuHeading @skin="2">{{t "jobs.tasks.title"}}</AuHeading>
-    <AuButtonGroup>
-      <LinkTo @route="index">
-        <AuButton  @skin="secondary">
-          {{t "jobs.tasks.back"}}
-        </AuButton>
-      </LinkTo>
-    </AuButtonGroup>
+  </Group>
+  <Group>
+    <AuLink @route="index" @icon="hierarchal-back" @skin="button-secondary">
+      {{t "jobs.tasks.back"}}
+    </AuLink>
   </Group>
   <Group class="au-c-toolbar__group--row">
     <ul class="au-o-grid">

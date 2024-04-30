@@ -37,7 +37,8 @@ jobs:
         view: "Bekijk"
   tasks:
     title: "Taak details"
-    back: "Terug naar overzicht"
+    back: "Terug naar job overzicht"
+    back_to_details: "Terug naar job details"
     uri: "URI"
     created: "Gemaakt"
     operation: "Operatie"
