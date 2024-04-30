@@ -17,7 +17,6 @@ jobs:
     title: "Job details"
     delete: "Delete"
     deleting: "Deleting"
-    back: "Back to overview"
     uri: "URI"
     creator: "Creator"
     created: "Created"
@@ -37,8 +36,6 @@ jobs:
         view: "View"
   tasks:
     title: "Task details"
-    back: "Back to job overview"
-    back_to_details: "Back to job details"
     uri: "URI"
     created: "Created"
     operation: "Operation"

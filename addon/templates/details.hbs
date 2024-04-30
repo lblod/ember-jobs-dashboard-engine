@@ -1,8 +1,20 @@
+<AuToolbar @size="medium" @skin="tint" @border="bottom" as |Group|>
+  <Group>
+    <ul class="au-c-list-horizontal au-c-list-horizontal--small">
+      <li class="au-c-list-horizontal__item">
+        <AuLink @route="index" @icon="arrow-left">
+          {{t "jobs.overview.title"}}
+        </AuLink>
+      </li>
+      <li class="au-c-list-horizontal__item au-u-medium">
+        {{t "jobs.details.title"}}
+      </li>
+    </ul>
+  </Group>
+</AuToolbar>
+
 <AuToolbar @border="bottom" @size="large" as |Group|>
   <Group class="au-c-toolbar__group--row au-c-toolbar_space-between">
-    <AuLink @route="index" @icon="arrow-left" @hideText={{true}}>
-      {{t "jobs.details.back"}}
-    </AuLink>
     <AuHeading @skin="2">{{t "jobs.details.title"}}</AuHeading>
   </Group>
   <Group>

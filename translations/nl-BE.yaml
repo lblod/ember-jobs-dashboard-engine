@@ -17,7 +17,6 @@ jobs:
     title: "Job details"
     delete: "Verwijder"
     deleting: "Aan het verwijderen"
-    back: "Terug naar overzicht"
     uri: "URI"
     creator: "Maker"
     created: "Gemaakt"
@@ -37,8 +36,6 @@ jobs:
         view: "Bekijk"
   tasks:
     title: "Taak details"
-    back: "Terug naar job overzicht"
-    back_to_details: "Terug naar job details"
     uri: "URI"
     created: "Gemaakt"
     operation: "Operatie"
