@@ -16,7 +16,7 @@ jobs:
   details:
     title: "Job details"
     delete: "Verwijder"
-    back: "Terug naar overzicht"
+    deleting: "Aan het verwijderen"
     uri: "URI"
     creator: "Maker"
     created: "Gemaakt"
@@ -36,7 +36,6 @@ jobs:
         view: "Bekijk"
   tasks:
     title: "Taak details"
-    back: "Terug naar overzicht"
     uri: "URI"
     created: "Gemaakt"
     operation: "Operatie"
@@ -45,11 +44,11 @@ jobs:
     status: "Status"
     error_title: "Error"
     icf:
-      link_input: "Lijst met invoerbestanden"
-      link_result: "Lijst met resultaatbestanden"
-      link_input_graphs: "Lijst met invoergrafen"
-      link_result_graphs: "Lijst met resultaatgrafen"
-      link_remote: "Lijst met externe invoer dataobjecten"
+      link_input: "Invoerbestanden"
+      link_result: "Resultaatbestanden"
+      link_input_graphs: "Invoergrafen"
+      link_result_graphs: "Resultaatgrafen"
+      link_remote: "Externe dataobjecten"
   icf:
     title: "Lijst van invoerbestanden"
     data:

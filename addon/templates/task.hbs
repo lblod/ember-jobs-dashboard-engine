@@ -1,13 +1,28 @@
+<AuToolbar @size="medium" @skin="tint" @border="bottom" as |Group|>
+  <Group>
+    <ul class="au-c-list-horizontal au-c-list-horizontal--small">
+      <li class="au-c-list-horizontal__item">
+        <AuLink @route="index" @icon="arrow-left">
+          {{t "jobs.overview.title"}}
+        </AuLink>
+      </li>
+      {{#if this.model.job}}
+        <li class="au-c-list-horizontal__item">
+          <AuLink @route="details" @model={{this.model.job.id}}>
+            {{t "jobs.details.title"}}
+          </AuLink>
+        </li>
+      {{/if}}
+      <li class="au-c-list-horizontal__item au-u-medium">
+        {{t "jobs.tasks.title"}}
+      </li>
+    </ul>
+  </Group>
+</AuToolbar>
+
 <AuToolbar @border="bottom" @size="large" as |Group|>
   <Group class="au-c-toolbar__group--row au-c-toolbar_space-between">
     <AuHeading @skin="2">{{t "jobs.tasks.title"}}</AuHeading>
-    <AuButtonGroup>
-      <LinkTo @route="index">
-        <AuButton  @skin="secondary">
-          {{t "jobs.tasks.back"}}
-        </AuButton>
-      </LinkTo>
-    </AuButtonGroup>
   </Group>
   <Group class="au-c-toolbar__group--row">
     <ul class="au-o-grid">
@@ -41,5 +56,34 @@
     </ul>
   </Group>
 </AuToolbar>
+
+<AuTabs as |Tab|>
+  <Tab>
+    <AuLink @route="task.input-containers-files">
+      {{t "jobs.tasks.icf.link_input"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.results-containers-files">
+      {{t "jobs.tasks.icf.link_result"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.input-containers-graph">
+      {{t "jobs.tasks.icf.link_input_graphs"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.results-containers-graph">
+      {{t "jobs.tasks.icf.link_result_graphs"}}
+    </AuLink>
+  </Tab>
+  <Tab>
+    <AuLink @route="task.input-containers-harvesting-collections">
+      {{t "jobs.tasks.icf.link_remote"}}
+    </AuLink>
+  </Tab>
+</AuTabs>
+
 
 {{outlet}}
