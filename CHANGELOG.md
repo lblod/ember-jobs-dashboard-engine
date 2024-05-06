@@ -1,3 +1,16 @@
+## 0.6.0 (2024-05-06)
+
+#### :boom: Breaking Change
+* [#21](https://github.com/lblod/ember-jobs-dashboard-engine/pull/21) Dependency updates ([@Windvis](https://github.com/Windvis))
+* [#19](https://github.com/lblod/ember-jobs-dashboard-engine/pull/19) Drop support for old Ember versions ([@Windvis](https://github.com/Windvis))
+* [#17](https://github.com/lblod/ember-jobs-dashboard-engine/pull/17) Drop Appuniversum v1 support ([@Windvis](https://github.com/Windvis))
+* [#15](https://github.com/lblod/ember-jobs-dashboard-engine/pull/15) Drop node 16 support ([@Windvis](https://github.com/Windvis))
+
+#### :rocket: Enhancement
+* [#22](https://github.com/lblod/ember-jobs-dashboard-engine/pull/22) UI tweaks ([@Windvis](https://github.com/Windvis))
+* [#18](https://github.com/lblod/ember-jobs-dashboard-engine/pull/18) Resolve Appuniversum v2 deprecations ([@Windvis](https://github.com/Windvis))
+
+
 ## 0.5.0 (2024-04-11)
 
 #### :boom: Breaking Change
