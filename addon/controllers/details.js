@@ -1,8 +1,10 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { task } from 'ember-concurrency';
+import { service } from '@ember/service';
 
 export default class DetailsController extends Controller {
+  @service router;
   @tracked page = 0;
   @tracked sort = 'created';
   @tracked size = 15;
@@ -68,7 +70,6 @@ export default class DetailsController extends Controller {
 
     yield job.destroyRecord();
 
-    // TODO: switch to the router service, but that requires more work in engines since it doesn't share the service by default.
-    this.transitionToRoute('index');
+    this.router.transitionTo('index');
   }
 }
