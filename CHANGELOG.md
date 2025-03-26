@@ -1,3 +1,9 @@
+## 0.7.0 (2025-03-26)
+
+#### :boom: Breaking Change
+* [#24](https://github.com/lblod/ember-jobs-dashboard-engine/pull/24) Update to ember-engines v0.11 ([@Windvis](https://github.com/Windvis))
+
+
 ## 0.6.0 (2024-05-06)
 
 #### :boom: Breaking Change
