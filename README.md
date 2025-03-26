@@ -21,7 +21,7 @@ ember install @lblod/ember-jobs-dashboard-engine
 
 ### Dependencies
 
-To mount this engine to a frontend you will first need to make sure that all dependencies are synced. This means that all dependencies that you can find in this repo's packages.json need to be the same version in the host app. Also the host app needs to be upgraded to ember-cli 3.24.0 if it is not already.
+To mount this engine to a frontend you will first need to make sure that all dependencies are synced. This means that all dependencies that you can find in this repo's packages.json need to be the same version in the host app. Also the host app needs to be upgraded to ember-cli 4.12.0 if it is not already.
 
 Besides that you will need to install the ember-engines package in the host app. This also has to be the same version as the one you can find in this repo's package.json
 
